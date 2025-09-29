@@ -6,6 +6,7 @@ import { StyleSheet, View } from 'react-native';
 //import stylesUIX from '../components/Style';
 import ButtonImage from '../components/ButtonImage';
 
+import ImageButton from '../components/ImageButton';
   
 
 
@@ -20,7 +21,11 @@ export default function about() {
 
       <ButtonImage pic = {('../assets/images/steveUK2025Facades512.jpg')} url={'https://www.arcmotion.co.uk'}/>
 
-      
+      <ImageButton
+        image={require('../assets/images/steveUK2025Facades512.jpg')}
+        text=""
+        url={'https://www.arcmotion.co.uk'}
+      />
      
     </View>
   );

@@ -10,7 +10,7 @@ export default function ButtonImage({ pic, url }: Props) {
     <View style={styles.buttonContainer}>
    
       <TouchableOpacity style={styles.button} onPress={() => Linking.openURL(url)}>
-        <Image  source= {require('../assets/images/steveUK2025Facades512.jpg')} style = {styles.ImageStyle}></Image>
+        <Image  source={pic} style = {styles.ImageStyle}></Image>
       </TouchableOpacity>
 
       </View>
@@ -53,3 +53,5 @@ ImageStyle:{
 },
   
 });
+
+//{require('../assets/images/steveUK2025Facades512.jpg')}
