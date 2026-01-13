@@ -1,6 +1,6 @@
 //import React from 'react';
 //import { Image } from "expo-image";
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FlatList, Image, SafeAreaView, Text, View } from 'react-native';
 
 import * as Print from 'expo-print';
@@ -48,6 +48,27 @@ type Props = {
 };
 
 export default function NashHouse() {
+   // const objData = require("../components/NashHouseData.json");
+    //const [stoneData, setStoneData] = useState(objData);
+
+
+  const [isLoading, setLoading] = useState(true);
+
+
+  const [objData, setObjData] = useState([]);
+  const [stoneData, setStoneData] = useState(objData);
+  //setStoneData(objData)
+
+useEffect(() => {
+    fetch('https://www.arcmotion.co.uk/NashHouseNorth/NashHouseData.json')
+      .then((response) => response.json())
+      .then((json) => setObjData(json))
+      .catch((error) => console.error(error))
+      .finally(() => setLoading(false));
+  }, []);
+
+  
+
 const [selectedPrinter, setSelectedPrinter] = useState();
   const print = async () => {
     // On iOS/android prints the given html. On web prints the HTML from the current page.
@@ -72,12 +93,12 @@ const [selectedPrinter, setSelectedPrinter] = useState();
 
 
 
-
-    const objData = require("../components/NashHouseData.json");
     //const objData = getDataFromWeb();
     const imageUrl = 'https://www.arcmotion.co.uk/NashHouseNorth/Panel-Images/';
 
-    const [stoneData, setStoneData] = useState(objData);
+  
+
+
     const getCurrentDate=()=>{
  
       var date = new Date().getDate();
@@ -100,12 +121,6 @@ function getPanel(item: { Material: string | number | bigint | boolean | React.R
             <View style = {stylesUIX.logoBox}>
             <Image source= {require('../assets/images/Szerelmey-Logo.png')} style = {stylesUIX.logo}></Image>
             </View>
-
-          
-
-       
-
-
         <View style = {stylesUIX.topBoxes}>
           <View style = {stylesUIX.detailBox}>
               <View style = {stylesUIX.textBox}> 
@@ -231,6 +246,7 @@ const [expanded, setExpanded] = React.useState(false);
 
 
   return (
+    
     <SafeAreaView style={stylesUIX.container}>
 
 
@@ -243,6 +259,7 @@ const [expanded, setExpanded] = React.useState(false);
         expanded={expanded}
         onPress={handlePress}>
         <View style={stylesUIX.rowTop}>
+          
        
         <Button label="All Stones" listen={() => setStoneData(objData)}/>
         <Button label="GA201" listen={() => setStoneData(objData.filter((xx: { Drawing: string; }) => xx.Drawing == "GA201"))} />
