@@ -2,7 +2,13 @@
 import React from 'react';
 import { Image, Linking, StyleSheet, Text, TouchableOpacity } from 'react-native';
 
-const ImageButton = ({ image, text, url }) => {
+interface ImageButtonProps {
+  image: any;
+  text: string;
+  url: string;
+}
+
+const ImageButton = ({ image, text, url }: ImageButtonProps) => {
   return (
     <TouchableOpacity style={styles.button} onPress={() => Linking.openURL(url)}>
       {image && <Image source={image} style={styles.image} />}
@@ -16,7 +22,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
    //padding: 10,
-    backgroundColor: '#eee',
+    backgroundColor: 'lavender',
    //borderRadius: 5,
   },
   image: {

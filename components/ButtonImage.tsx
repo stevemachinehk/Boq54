@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     //justifyContent: 'center',
     padding: 3,
     flexDirection: 'column',
-    //backgroundColor:'grey',
+    backgroundColor:'lavender',
   },
   button: {
     borderRadius: 5,
@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
   buttonLabel: {
     color: 'black',
     fontSize: 16,
+    backgroundColor:'lavender',
   },
 ImageStyle:{
 
@@ -49,6 +50,7 @@ ImageStyle:{
   resizeMode:'contain',
  // borderWidth:3,
   padding:10,
+  backgroundColor:'lavender',
   
 },
   

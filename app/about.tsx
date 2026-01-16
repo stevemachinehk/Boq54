@@ -4,7 +4,6 @@ import { StyleSheet, View } from 'react-native';
 
 
 //import stylesUIX from '../components/Style';
-import ButtonImage from '../components/ButtonImage';
 
 import ImageButton from '../components/ImageButton';
   
@@ -19,7 +18,7 @@ export default function about() {
 
     <View style={stylesUI.container}>
 
-      <ButtonImage pic = {('../assets/images/steveUK2025Facades512.jpg')} url={'https://www.arcmotion.co.uk'}/>
+      
 
       <ImageButton
         image={require('../assets/images/steveUK2025Facades512.jpg')}
@@ -45,12 +44,6 @@ export default function about() {
   alignItems:'center'
 },
 
-    logo: { 
-    height: 256,
-
-    resizeMode:'contain',
-
-  },
 
 
 });
