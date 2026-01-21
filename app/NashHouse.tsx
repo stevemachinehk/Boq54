@@ -31,7 +31,7 @@ type Props = {
 };
 
 export default function NashHouse() {
-  const jsonUrl = 'https://www.arcmotion.co.uk/NashHouseNorth/NashHouseData.json';
+  const jsonUrl = 'http://63.135.79.87:555/nash/NashHouseData.json';
    // const objData = require("../components/NashHouseData.json");
     //const [stoneData, setStoneData] = useState(objData);
   const [isLoading, setLoading] = useState(true);
@@ -41,7 +41,7 @@ export default function NashHouse() {
 
 
 useEffect(() => {
-    fetch('https://www.arcmotion.co.uk/NashHouseNorth/NashHouseData.json',{'cache':'no-store'}) 
+    fetch(jsonUrl,{'cache':'no-store'}) 
       .then((response) => response.json())
       .then((json) => {
         setObjData(json);
@@ -63,7 +63,7 @@ function formatDate(dateString: string) {
   }).format(date);
 };
 
-  fetch('https://www.arcmotion.co.uk/NashHouseNorth/NashHouseData.json',{'cache':'no-store'})
+  fetch(jsonUrl,{'cache':'no-store'})
   .then(response => {
     // Check response headers for date info
     const lastModified = response.headers.get('Last-Modified');
@@ -74,10 +74,10 @@ function formatDate(dateString: string) {
     console.log('Date created from headers:', formatDate(dateCreated || ''));
     setJsonDate(formatDate(dateCreated || ''));
 
-    return response.json(); // or response.json() if it's JSON
-  })
-  .then(data => {
-    // Process your file data
+  //   return response.json(); // or response.json() if it's JSON
+  // })
+  // .then(data => {
+  //   // Process your file data
   }).catch((error) => console.error(error));
 
 
